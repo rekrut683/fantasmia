@@ -191,7 +191,7 @@ void init_() {
 /***********************ОБНУЛЯЕМ СОСТОЯНИЕ КНОПКИ В СУНДУКЕ******************************/
   /***добавил строчку, ранее не было 07.05*/ 
 		ml_knopka = 0; 
-		knopka_time = 1000;
+		knopka_time = 200;
 		flag_knopka = false;
   /***************************************/
 
@@ -521,7 +521,7 @@ void make_task6() {
       task6 = false;
       
       /****добавил 07.05, ранее этой строчки не было вообще****/
-      task7 = false;
+      task7 = true;
       /**********************/
   
 }
@@ -543,6 +543,8 @@ void make_task7() {
 void make_task8() {
   
              state[7]=true;
+             Serial1.print("kabel");
+             delay(100);
              digitalWrite(SV_L1,LOW);
              digitalWrite(AVAR_SVET,HIGH);
              delay(500);
@@ -558,8 +560,6 @@ void make_task8() {
              delay(50);
              digitalWrite(AVAR_SVET,HIGH);
              digitalWrite(SVET_2,LOW);
-             delay(100);
-             Serial1.print("kabel");
              delay(15000);
              task8 = false;
              task9 = true;
