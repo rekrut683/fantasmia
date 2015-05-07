@@ -278,6 +278,50 @@ void init_() {
   
 }
 
+/***************************ОСТАНОВ КВЕСТА*****************************/
+void StandBy() {
+	
+///////ОТПУСКАЕМ ВСЕ МАГНИТЫ, ВКЛЮЧАЕМ СВЕТ
+  digitalWrite(KOMOD,HIGH);
+  digitalWrite(SHKAF,HIGH);
+  digitalWrite(KARTINA,HIGH);
+  digitalWrite(SUNDUK,HIGH);
+  digitalWrite(SVET_KOMNATA,LOW);
+  digitalWrite(AVAR_SVET,LOW);
+  digitalWrite(DYM_220,LOW);
+  digitalWrite(TRUM,HIGH);
+  digitalWrite(RELE,LOW);
+  digitalWrite(SV_L1,LOW);
+  digitalWrite(SKRYTAYA_DVER,HIGH);
+  digitalWrite(SVET_2,LOW);
+  digitalWrite(DYM_12,LOW);
+  digitalWrite(VYHOD,HIGH);
+  
+  
+ ////////ОСТАНАВЛИВАЕМ ЗВУК 
+  delay(200);
+  Serial1.print("stop");	
+  delay(500);
+  
+  ////////ОБНУЛЯЕМ ЗАДАЧИ
+  task1 = false;
+  task2 = false;
+  task3 = false;
+  task4 = false;
+  task5 = false;
+  task6 = false;
+  task7 = false;
+  task8 = false;
+  task9 = false;
+  task10 = false;
+  task11 = false;
+  task12 = false;
+	
+	
+	
+}
+
+
 /*******************ФУНКЦИЯ НАЧАЛЬНЫХ УСТАНОВОК*************************/
 void setup() {
   
@@ -648,6 +692,7 @@ void loop() {
             if (str == "B1") {make_task11();}
             if (str == "C1") {make_task12();}
             if (str == "AA") {init_();}
+            if (str == "BB") {StandBy();}
             
             if (str != "") {Serial.print("str: "); Serial.println(str);}
             
